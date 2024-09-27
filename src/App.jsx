@@ -1,30 +1,24 @@
-import React from "react";
-import Hero from "./components/Hero";
-import { UpdateFollower } from "react-mouse-follower";
-import Products from "./components/Products/Products";
-import Banner from "./components/Banner/Banner";
-import BannerText from "./components/Banner/BannerText";
-import Blogs from "./components/Blogs/Blogs";
-import FAQ from "./components/FAQ/FAQ";
-import Footer from "./components/Footer/Footer";
+import React from 'react';
+import { UpdateFollower } from 'react-mouse-follower';
 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import Router from './router';
+import Header from './components/Header';
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 const App = () => {
   return (
     <main className="overflow-x-hidden">
       <UpdateFollower
         mouseOptions={{
-          backgroundColor: "white",
+          backgroundColor: 'white',
           zIndex: 10,
-          followSpeed: 1.5,
+          followSpeed: 2,
         }}
       >
-        <Hero />
-        <Products />
-        <Banner />
-        <BannerText />
-        <Blogs />
-        <FAQ />
-        <Footer />
+        <Header></Header>
+        <Router />
       </UpdateFollower>
     </main>
   );
